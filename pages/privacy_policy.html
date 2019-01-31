@@ -1,0 +1,82 @@
+				<div class="card fluid">
+					<h2>Privacy Policy ([PLACEHOLDER_LEGAL_LAST_REVISED_DATE])</h2>
+					<p>Detailed below is everything you need to know about how your data is handled.</p>
+					<div class="section">
+						<h3>What data we ([PLACEHOLDER_ORGANIZATION]) collect</h3>
+						<ul>
+							<li>Website</li>
+							<ul>
+								<li>What is received: Cookies (detailed below), Page Visited, Referring Page, User Agent, and IP Address</li>
+								<li>Cookies</li>
+								<ul>
+									<li>PHPSESSID - Set by the server to maintain a CSRF token on the client to prevent abuse of the Stripe processor</li>
+									<!-- TODO: add more cookies here as used -->
+									<script>
+										var cookieCount = document.cookie.split(';').length;
+										if(document.cookie.length == 0) { cookieCount--; }
+										document.write('<li><mark>Cookie status: ' + cookieCount + ' currently set</mark></li>');
+										document.write('<li><a href="javascript:deleteAllCookies()">Click here to delete all cookies from your browser</a></li>')
+									</script>
+									<noscript><li><mark>Cookie status: Unknown</mark></li></noscript>
+								</ul>
+								<li>How often: On every page visit</li>
+								<li>Why it is received: Used to serve the web pages to users</li>
+								<li>When it will be deleted: When the web server log files are rotated/deleted</li>
+								<li>What else will it be used for: Nothing else</li>
+								<li>How to anonymize: Visit the site using the Tor Browser</li>
+							</ul>
+							<?php if($SBNR_ANALYTICS_ENABLED || $SBNR_SHADOW_ENABLED) : ?>
+							<li>Website Analytics</li>
+							<ul>
+								<li>What is received: Page Visited, Stripped Referring Page, Browser Fingerprint, User Agent, IP Address</li>
+								<li>How often: On every page visit</li>
+								<li>Why it is received: Used to determine how popular and roughly how many users we have</li>
+								<li>When it will be deleted: Only the past 200 requests are stored</li>
+								<li>What else will it be used for: Nothing else</li>
+								<!-- The above is applicable if using Shadow with its defaults -->
+								<li>How to anonymize: Visit the site using the Tor Browser</li>
+								<li>How to disable: Enable your browser's 'Do Not Track' option or disable JavaScript</li>
+								<script>
+									var dntStatus = "Unknown";
+									if(navigator.doNotTrack) {
+										dntStatus = "Not Tracking (Do Not Track Enabled)";
+									} else {
+										dntStatus = "Tracking (Do Not Track Disabled)";
+									}
+									document.write("<li><mark>Current status: " + dntStatus + "</mark></li>");
+								</script>
+								<noscript><li><mark>Current status: Not Tracking (JavaScript Disabled)</mark></li></noscript>
+							</ul>
+							<?php endif; ?>
+						</ul>
+					</div>
+					<!-- TODO: Uncomment and update this section as necessary -->
+					<!--<div class="section">
+						<h3>Control over your data</h3>
+						<ul>
+							<li>Requesting your data: We have no way to tie data to an identity</li>
+							<li>Correction of your data: We have no data that can be corrected</li>
+							<li>Deletion of your data: All data we have on users is periodically deleted</li>
+							<li>Expressing concerns: We are always open to suggestions on how we can further improve user privacy. Please e-mail us or open an issue on the project repository and lets get a discussion going!</li>
+						</ul>
+						<p>E-Mail: <script>document.write(atob("[PLACEHOLDER_CONTACT_EMAIL]"));</script><noscript>JavaScript Protected</noscript></p>
+					</div>-->
+					<div class="section">
+						<h3>What data third parties collect</h3>
+						<p>Third parties are used to support specific features and apps</p>
+						<ul>
+							<?php if($SBNR_STRIPE_ENABLED) : ?>
+							<li>Website Payments</li>
+							<ul>
+								<li>Who: Stripe</li>
+								<li>What they receive: Name, Bank Card, E-Mail Address, User Agent, Browser Fingerprint, IP Address</li>
+								<li>How often: When you purchase a product or service from us</li>
+								<li>Why they receive: Used to process the payment</li>
+								<li>How to anonymize: Use a fake name, debit gift card, disposable e-mail address, and connect via a computer at your local library</li>
+								<li>How to disable: Requests to Stripe's servers will not occur until you attempt to purchase a ROM</li>
+								<li>Privacy Policy: <a href="https://stripe.com/us/privacy" target="_blank" rel="nofollow noopener noreferrer">Stripe Privacy Policy</a></li>
+							</ul>
+							<?php endif; ?>
+						</ul>
+					</div>
+				</div>

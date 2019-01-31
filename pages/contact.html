@@ -1,0 +1,64 @@
+				<div class="card fluid">
+					<h2 class="h2o">Contact Us</h2>
+					<div class="row col-sm-12 col-md-10 col-md-offset-1">
+						<div class="card small centero">
+							<div class="section">
+								<h4>Phone Number</h4>
+								<p>+1 800 555-1234</p>
+								<!--<p><script>document.write(atob("[PLACEHOLDER_CONTACT_PHONE]"));</script><noscript>JavaScript Protected</noscript></p>-->
+							</div>
+						</div>
+						<div class="card small centero">
+							<div class="section">
+								<h4>E-Mail</h4>
+								<p>hello@example.tld</p>
+								<!--<p><script>document.write(atob("[PLACEHOLDER_CONTACT_EMAIL]"));</script><noscript>JavaScript Protected</noscript></p>-->
+							</div>
+						</div>
+						<div class="card small centero">
+							<div class="section">
+								<h4>Mailing Address</h4>
+								<p>Upon Request</p>
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">
+						function submit() {
+							var name = encodeURIComponent(btoa(document.getElementById('txtName').value));
+							var phone = encodeURIComponent(btoa(document.getElementById('txtPhone').value));
+							var message = encodeURIComponent(btoa(document.getElementById('txtMessage').value));
+							if(name.length > 3 && phone.length >= 6 && message.length > 0 && message.length <= 500) {
+								var req = new XMLHttpRequest();
+								req.onreadystatechange = function() {
+									if (req.readyState == 4 && req.status == 200) {
+										document.getElementById('btnSubmit').disabled = true;
+										document.getElementById("btnSubmit").value = "Message Sent!";
+									}
+								};
+								req.open("POST", "contact.php", true);
+								req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+								req.send("ct=<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>&txtName=" + name + "&txtPhone=" + phone + "&txtMessage=" + message);
+								document.getElementById("btnSubmit").value = "Sending...";
+							} else {
+								alert("Please properly fill out all fields");
+							}
+						}
+					</script>
+					<form class="centero" name="frmContact" method="post" action="javascript:submit()">
+						<div class="input-group">
+							<label for="txtName">Name</label>
+							<input type="text" name="txtName" id="txtName" maxlength="40" placeholder="Jane Smith" required/>
+						</div>
+						<div class="input-group">
+							<label for="txtPhone">Phone Number</label>
+							<input type="text" name="txtPhone" id="txtPhone" maxlength="11" placeholder="18005551234" required/>
+						</div>
+						<div class="input-group vertical">
+							<label for="txtMessage">Message</label>
+							<textarea name="txtMessage" id="txtMessage" rows="4" style="resize:none" maxlength="500" placeholder="PLEASE TYPE IN ME! I WANT YOUR LETTERS!" required></textarea>
+						</div>
+						<div class="input-group">
+							<input class="button primary" type="submit" id="btnSubmit" value="Request a Call">
+						</div>
+					</form>
+				</div>

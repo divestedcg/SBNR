@@ -1,0 +1,62 @@
+			<div class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 centero">
+				<div class="card fluid" id="info">
+					<h2 class="h2o">Best on Earth Orange Juice</h2>
+					<p>We only use oranges that are pulled from the ripest of planets!</p>
+					<?php if($saveData === false) : ?>
+					<div class="card large"><img class="section media" style="height:auto;" src="images/orange.jpg" title="Mandarin Oranges by Joe Ravi, License CC BY-SA 3.0" alt="Mandarin Oranges"/></div>
+					<?php endif; ?>
+				</div>
+				<div class="card fluid" id="juices">
+					<h2 class="h2o">Our Juices</h2>
+					<div class="section">
+						<h3 class="h3o">Orange Juice (Pulp Only)</h3>
+						<p>Juice? What juice? A glass of this is just pulp and only pulp.</p>
+					</div>
+					<div class="section">
+						<h3 class="h3o">Orange Juice (High Pulp)</h3>
+						<p>The best kind orange juice.</p>
+					</div>
+					<div class="section">
+						<h3 class="h3o">Orange Juice (No Pulp)</h3>
+						<p>I'm sorry, we are out of stock of no pulp orange juice. We should have it back in stock never.</p>
+					</div>
+					<div class="section">
+						<h3 class="h3o">Give us your deets we give your da juice.</h3>
+						<script type="text/javascript">
+							function submit() {
+								var name = encodeURIComponent(btoa(document.getElementById('txtName').value));
+								var phone = encodeURIComponent(btoa(document.getElementById('txtPhone').value));
+								if(name.length >= 2 && phone.length >= 7) {
+									var req = new XMLHttpRequest();
+									req.onreadystatechange = function() {
+										if (req.readyState == 4 && req.status == 200) {
+											document.getElementById("btnSubmit").value = "Message Sent!";
+										}
+									};
+									req.open("POST", "contact.php", true);
+									req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+									req.send("ct=<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>&txtName=" + name + "&txtPhone=" + phone + "&txtMessage=" + btoa("DISABLED"));
+									document.getElementById("btnSubmit").value = "Sending...";
+									document.getElementById('btnSubmit').disabled = true;
+								} else {
+									alert("Please properly fill out all fields");
+								}
+							}
+						</script>
+						<form name="frmContact" method="post" action="javascript:submit()">
+							<div class="input-group">
+								<label for="txtName">Name</label>
+								<input type="text" name="txtName" id="txtName" maxlength="40" required/>
+							</div>
+							<div class="input-group">
+								<label for="txtPhone">Phone Number</label>
+								<input type="text" name="txtPhone" id="txtPhone" maxlength="11" required/>
+							</div>
+							<br>
+							<div class="input-group">
+								<input class="button primary" type="submit" id="btnSubmit" value="Request a Call" disabled>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
