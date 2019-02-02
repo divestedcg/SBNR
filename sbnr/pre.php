@@ -3,7 +3,9 @@
 session_start();
 
 //Generate a CSRF token
-$_SESSION['SBNR_CSRF_TOKEN'] = bin2hex(random_bytes(32));
+if(!isset($_SESSION['SBNR_CSRF_TOKEN'])) {
+	$_SESSION['SBNR_CSRF_TOKEN'] = bin2hex(random_bytes(32));
+}
 
 //Save-Data Header Support
 $saveData = false;

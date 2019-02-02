@@ -8,7 +8,7 @@ include "sbnr/utils.php";
 include "sbnr/pre.php";
 
 if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"], $_POST["txtMessage"])) {
-	if(noHTML($_POST["CSRF_TOKEN"]) == $_SESSION['SBNR_CSRF_TOKEN']) {
+	if(noHTML($_POST["CSRF_TOKEN"]) === $_SESSION['SBNR_CSRF_TOKEN']) {
 		$name = noHTML(base64_decode(urldecode($_POST["txtName"])));
 		$number = preg_replace("/[^0-9]/", '', noHTML(base64_decode(urldecode($_POST["txtPhone"]))));
 		$message = noHTML(base64_decode(urldecode($_POST["txtMessage"])));
