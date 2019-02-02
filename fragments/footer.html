@@ -4,7 +4,7 @@
 		<footer style="text-align: center;">
 			<p>[PLACEHOLDER_ORGANIZATION] &copy; [PLACEHOLDER_COPYRIGHT_YEAR]
 			<?php if($SBNR_FOOTER_LEGAL) : ?>
-			<br><a href="/index.php?page=privacy_policy">Privacy Policy</a> || <a href="/index.php?page=terms_of_service">Terms of Service</a>
+			<br><a href="index.php?page=privacy_policy">Privacy Policy</a> || <a href="index.php?page=terms_of_service">Terms of Service</a>
 			<?php endif; ?>
 			<?php if($SBNR_FOOTER_POWEREDBY) : ?>
 			<br>Powered by <a href="https://minicss.org" target="_blank" rel="nofollow noopener noreferrer">mini.css</a> (MIT) and SBNR (GPLv3)
@@ -13,7 +13,7 @@
 		</footer>
 
 		<!-- Scripts -->
-		<script type="text/javascript" src="/assets/js/utils.js" integrity="sha384-ta+GYYnV9oO8/pTXH4qGhU+HSbyvEXeKV61IZbgh4h0Xdyyq90ShglFOJzgIvKVG"></script>
+		<script type="text/javascript" src="assets/js/utils.js" integrity="sha384-ta+GYYnV9oO8/pTXH4qGhU+HSbyvEXeKV61IZbgh4h0Xdyyq90ShglFOJzgIvKVG"></script>
 		<script type="text/javascript">
 			function getCSRFToken() {
 				return "<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>";
@@ -26,8 +26,8 @@
 			if($SBNR_SHADOW_ENABLED) {
 				if($SBNR_SHADOW_BASIC === true) { $basic = "-basic"; }
 				$snippet = file_get_contents("sbnr/analytics-shadow" . $basic . ".html");
-				str_replace("[PLACEHOLDER_INSTANCE]", $SBNR_SHADOW_INSTANCE, $snippet);
-				str_replace("[PLACEHOLDER_LANDSCAPE]", $SBNR_SHADOW_LANDSCAPE, $snippet);
+				$snippet = str_replace("[PLACEHOLDER_INSTANCE]", $SBNR_SHADOW_INSTANCE, $snippet);
+				$snippet = str_replace("[PLACEHOLDER_LANDSCAPE]", $SBNR_SHADOW_LANDSCAPE, $snippet);
 				print($snippet);
 			}
 		?>

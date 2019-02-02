@@ -6,7 +6,7 @@
 		<meta name="theme-color" content="#212121">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
-		<link href="/images/favicon.png" rel="shortcut icon">
+		<link href="images/favicon.png" rel="shortcut icon">
 		<!-- sed -i 's/.apple-system/"Fira Sans", -apple-system/' mini*.css; -->
 		<?php
 			$lightTheme = '<link rel="stylesheet" href="assets/css/mini-default.min.css" integrity="sha384-I0JZrlnrfl/sj0x+m1zMq41kC5NY8II5AcD53lX2RmSWjr/75qge/WCY2LYwH0+R">' . PHP_EOL;
@@ -43,7 +43,7 @@
 		<?php if($SBNR_GEN_ONE_PAGE === true) : ?>
 		<!-- Navigation -->
 		<header class="sticky centero">
-			<a href="index.php#splash" class="logo" style="color: #e51400; font-weight: bold;">[PLACEHOLDER_PRODUCT]</a>
+			<a href="index.php#splash" class="logo" style="color: #FF5722; font-weight: bold;">[PLACEHOLDER_PRODUCT]</a>
 			<label for="drawer-control" class="button drawer-toggle"></label>
 			<a href="#info" class="button hidden-sm">Info</a>
 			<a href="#juices" class="button hidden-sm">Juices</a>
@@ -55,9 +55,10 @@
 			<a href="#info">Info</a>
 			<a href="#juices">Juices</a>
 		</nav>
+		<div class="row" id="content">
 		<?php else : ?>
 		<header class="sticky" style="text-align: center;">
-			<a href="/index.php" class="logo col-sm-3" style="color: #FF5722;">[PLACEHOLDER_PRODUCT]</a>
+			<a href="index.php" class="logo col-sm-3" style="color: #FF5722;">[PLACEHOLDER_PRODUCT]</a>
 			<label for="drawer-control" class="button drawer-toggle"></label>
 		</header>
 		<div class="row" id="content">
@@ -65,13 +66,13 @@
 			<input type="checkbox" id="drawer-control" class="drawer">
 			<nav class="col-md-3 col-lg-2">
 				<label for="drawer-control" class="drawer-close"></label>
-				<a href="/index.php?page=home">Home</a>
+				<a href="index.php?page=home">Home</a>
 				<span>Category X</span>
-					<a class="sublink-1" href="/index.php?page=page_template">Page Template</a>
-					<a class="sublink-1" href="/index.php?page=gallery">Gallery Template</a>
+					<a class="sublink-1" href="index.php?page=page_template">Page Template</a>
+					<a class="sublink-1" href="index.php?page=gallery">Gallery Template</a>
 				<a href="https://example.tld" target="_blank" rel="nofollow noopener noreferrer">External Link</a>
-				<a href="/index.php?page=contact">Contact Us</a>
-				<a href="/index.php?page=page_template">About</a>
+				<a href="index.php?page=contact">Contact Us</a>
+				<a href="index.php?page=page_template">About</a>
 			</nav>
 
 			<!-- Content -->
