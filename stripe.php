@@ -1,5 +1,6 @@
 <?php
 
+$handler = true;
 include "sbnr/config.php";
 if($SBNR_STRIPE_ENABLED === false) { exit; }
 

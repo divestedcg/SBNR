@@ -3,7 +3,7 @@
 session_start();
 
 //Generate a CSRF token
-if(!isset($_SESSION['SBNR_CSRF_TOKEN'])) {
+if($handler === false || !isset($_SESSION['SBNR_CSRF_TOKEN'])) {
 	$_SESSION['SBNR_CSRF_TOKEN'] = bin2hex(random_bytes(32));
 }
 

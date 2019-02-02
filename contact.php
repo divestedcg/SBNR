@@ -1,5 +1,6 @@
 <?php
 
+$handler = true;
 include "sbnr/config.php";
 if($SBNR_CONTACT_ENABLED === false) { exit; }
 

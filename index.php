@@ -1,5 +1,6 @@
 <?php
 
+$handler = false;
 include "sbnr/config.php";
 include "sbnr/security.php";
 include "sbnr/utils.php";
