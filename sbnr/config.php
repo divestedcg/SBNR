@@ -29,6 +29,7 @@ $SBNR_SHADOW_LANDSCAPE = "SNBR_TEST";
 $SBNR_SEC_FILE_UPLOADS = "Off";
 $SBNR_SEC_MAX_POST_SIZE = "2K";
 $SBNR_SEC_SESSION_COOKIE_NAME = "PHPSESSID";
+$SBNR_SEC_CSRF_PER_REQUEST = true; //Disable if you CSRF tokens are needed and users are likely to have multiple windows open
 
 //Contact form handler
 $SBNR_CONTACT_ENABLED = false; //prevent request handling
