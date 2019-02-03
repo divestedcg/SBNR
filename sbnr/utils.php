@@ -16,7 +16,7 @@ function getContactForm($submitLabel = 'Send', $messageEnabled = false, $message
 }
 
 //Validates a string
-function checkString($input, $minLength = 0, $numPeriods = 1, $numSlashes = 0) {
+function checkString($input, $minLength = 0, $numPeriods = 1, $numSlashes = 0, $numPeriodsRel = 0) {
 	//support already noHTML()'ed strings
 	$input = str_replace("&period;", ".", $input);
 	$input = str_replace("&sol;", "/", $input);
@@ -24,6 +24,7 @@ function checkString($input, $minLength = 0, $numPeriods = 1, $numSlashes = 0) {
 	$ok = !is_null($input)
 		&& strlen($input) > $minLength
 		&& substr_count($input, '.') <= $numPeriods
+		&& substr_count($input, '..') <= $numPeriodsRel
 		&& substr_count($input, '/') <= $numSlashes;
 	return $ok;
 }
