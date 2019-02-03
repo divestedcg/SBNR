@@ -11,6 +11,10 @@ function generateErrorPageBasic($errorCode) {
 	//print("<!DOCTYPE html><html lang=\"en\"><head><title>REQUEST DENIED</title></head><body><h1>REQUEST DENIED</h1></body></html>");
 }
 
+function getContactForm($submitLabel = 'Send', $messageEnabled = false, $messagePlaceholder = '') {
+	include "contact.html";
+}
+
 //Validates a string
 function checkString($input, $minLength = 0, $numPeriods = 1, $numSlashes = 0) {
 	//support already noHTML()'ed strings

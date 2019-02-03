@@ -22,22 +22,7 @@
 					</div>
 					<div class="section">
 						<h3 class="h3o">Give us your deets we give your da juice.</h3>
-						<form class="centero" name="frmContact" id="frmContact" method="post" action="sbnr/contact.php">
-							<input type="hidden" name="REFERRER" id="REFERRER" value="<?php print($pageRaw); ?>"/>
-							<input type="hidden" name="CSRF_TOKEN" id="CSRF_TOKEN" value="<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>"/>
-							<div class="input-group">
-								<label for="txtName">Name</label>
-								<input type="text" name="txtName" id="txtName" minlength="2" maxlength="30" placeholder="Jane Smith" required/>
-							</div>
-							<div class="input-group">
-								<label for="txtPhone">Phone Number</label>
-								<input type="tel" name="txtPhone" id="txtPhone" minlength="7" maxlength="12" pattern="^\+?\d{0,13}" placeholder="18005551234" required/>
-							</div>
-							<div class="input-group">
-								<input class="button primary" type="submit" id="btnSubmit" value="Request a Call" <?php if(isset($_GET["CONTACT_RESULT"])) { print "disabled"; } ?>>
-							</div>
-							<?php if(isset($_GET["CONTACT_RESULT"])) { print "<br><p>" . noHTML($_GET["CONTACT_RESULT"]) . "</p>"; } ?>
-						</form>
+						<?php getContactForm("Request a Call"); ?>
 					</div>
 				</div>
 				</div>
