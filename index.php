@@ -14,6 +14,7 @@ if(strlen($page) == 0) { //default to home page if not empty
 }
 if(checkString($page, 1, 0, 1)) { //validate string to prevent accessing out of self resources
 	$page = str_replace("&lowbar;", "_", $page);
+	$pageRaw = $page;
 	$page = "pages/" . $page . ".html";
 	if(file_exists($page)) { //check if page exists
 		$pageReal = $page;

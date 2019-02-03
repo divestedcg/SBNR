@@ -8,7 +8,7 @@ include "security.php";
 include "utils.php";
 include "pre.php";
 
-if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"])) {
+if(isset($_POST["CSRF_TOKEN"], $_POST["REFERRER"], $_POST["txtName"], $_POST["txtPhone"])) {
 	if(noHTML($_POST["CSRF_TOKEN"]) === $_SESSION['SBNR_CSRF_TOKEN']) {
 		$name = noHTML(urldecode($_POST["txtName"]));
 		$number = preg_replace("/[^0-9]/", '', noHTML(urldecode($_POST["txtPhone"])));
@@ -40,7 +40,7 @@ if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"])) {
 					"[" . $msentinel . "] MESSAGE END";
 
 			exec("echo " . escapeshellarg($messageResult) . " | sendxmpp -f " . $SBNR_CONTACT_SENDXMPP_CONFIG . " -t " . $SBNR_CONTACT_SENDXMPP_RECEIPENT);
-			print("Message Sent!");
+			header("Location: ../index.php?page=" . noHTML($_POST["REFERRER"]) . "&CONTACT_RESULT=Message%20Sent!#frmContact");
 		} else {
 			generateErrorPageBasic(406);
 		}
