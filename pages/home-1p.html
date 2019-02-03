@@ -33,7 +33,7 @@
 											document.getElementById("btnSubmit").value = "Message Sent!";
 										}
 									};
-									req.open("POST", "contact.php", true);
+									req.open("POST", "sbnr/contact.php", true);
 									req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 									req.send("ct=<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>&txtName=" + name + "&txtPhone=" + phone + "&txtMessage=" + btoa("DISABLED"));
 									document.getElementById("btnSubmit").value = "Sending...";

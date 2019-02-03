@@ -1,12 +1,12 @@
 <?php
 
 $handler = true;
-include "sbnr/config.php";
+include "config.php";
 if($SBNR_CONTACT_ENABLED === false) { exit; }
 
-include "sbnr/security.php";
-include "sbnr/utils.php";
-include "sbnr/pre.php";
+include "security.php";
+include "utils.php";
+include "pre.php";
 
 if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"], $_POST["txtMessage"])) {
 	if(noHTML($_POST["CSRF_TOKEN"]) === $_SESSION['SBNR_CSRF_TOKEN']) {

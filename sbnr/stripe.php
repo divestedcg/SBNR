@@ -1,12 +1,12 @@
 <?php
 
 $handler = true;
-include "sbnr/config.php";
+include "config.php";
 if($SBNR_STRIPE_ENABLED === false) { exit; }
 
-include "sbnr/security.php";
-include "sbnr/utils.php";
-include "sbnr/pre.php";
+include "security.php";
+include "utils.php";
+include "pre.php";
 
 $csrfToken = noHTML($_POST["CSRF_TOKEN"]);
 $paymentToken = noHTML($_POST['PAYMENT_TOKEN']);

@@ -12,7 +12,7 @@ function checkout() {
 					setTimeout(markPurchased, 500);
 				}
 			};
-			req.open("POST", "stripe.php", true);
+			req.open("POST", "sbnr/stripe.php", true);
 			req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			req.send("PAYMENT_TOKEN=" + token.id
 			+ "&PAYMENT_AMOUNT=" + paymentAmount
