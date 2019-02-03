@@ -22,40 +22,19 @@
 							</div>
 						</div>
 					</div>
-					<script type="text/javascript">
-						function submit() {
-							var name = encodeURIComponent(btoa(document.getElementById('txtName').value));
-							var phone = encodeURIComponent(btoa(document.getElementById('txtPhone').value));
-							var message = encodeURIComponent(btoa(document.getElementById('txtMessage').value));
-							if(name.length > 3 && phone.length >= 6 && message.length > 0 && message.length <= 500) {
-								var req = new XMLHttpRequest();
-								req.onreadystatechange = function() {
-									if (req.readyState == 4 && req.status == 200) {
-										document.getElementById('btnSubmit').disabled = true;
-										document.getElementById("btnSubmit").value = "Message Sent!";
-									}
-								};
-								req.open("POST", "sbnr/contact.php", true);
-								req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-								req.send("ct=<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>&txtName=" + name + "&txtPhone=" + phone + "&txtMessage=" + message);
-								document.getElementById("btnSubmit").value = "Sending...";
-							} else {
-								alert("Please properly fill out all fields");
-							}
-						}
-					</script>
-					<form class="centero" name="frmContact" method="post" action="javascript:submit()">
+					<form class="centero" name="frmContact" method="post" action="sbnr/contact.php">
+						<input type="hidden" name="CSRF_TOKEN" id="CSRF_TOKEN" value="<?php print($_SESSION['SBNR_CSRF_TOKEN']); ?>"/>
 						<div class="input-group">
 							<label for="txtName">Name</label>
-							<input type="text" name="txtName" id="txtName" maxlength="40" placeholder="Jane Smith" required/>
+							<input type="text" name="txtName" id="txtName" minlength="2" maxlength="30" placeholder="Jane Smith" required/>
 						</div>
 						<div class="input-group">
 							<label for="txtPhone">Phone Number</label>
-							<input type="text" name="txtPhone" id="txtPhone" maxlength="11" placeholder="18005551234" required/>
+							<input type="tel" name="txtPhone" id="txtPhone" minlength="7" maxlength="12" pattern="^\+?\d{0,13}" placeholder="18005551234" required/>
 						</div>
 						<div class="input-group vertical">
 							<label for="txtMessage">Message</label>
-							<textarea name="txtMessage" id="txtMessage" rows="4" style="resize:none" maxlength="500" placeholder="PLEASE TYPE IN ME! I WANT YOUR LETTERS!" required></textarea>
+							<textarea name="txtMessage" id="txtMessage" rows="4" style="resize:none" minlength="1" maxlength="500" placeholder="PLEASE TYPE IN ME! I WANT YOUR LETTERS!" required></textarea>
 						</div>
 						<div class="input-group">
 							<input class="button primary" type="submit" id="btnSubmit" value="Request a Call">

@@ -8,11 +8,15 @@ include "security.php";
 include "utils.php";
 include "pre.php";
 
-if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"], $_POST["txtMessage"])) {
+if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"])) {
 	if(noHTML($_POST["CSRF_TOKEN"]) === $_SESSION['SBNR_CSRF_TOKEN']) {
-		$name = noHTML(base64_decode(urldecode($_POST["txtName"])));
-		$number = preg_replace("/[^0-9]/", '', noHTML(base64_decode(urldecode($_POST["txtPhone"]))));
-		$message = noHTML(base64_decode(urldecode($_POST["txtMessage"])));
+		$name = noHTML(urldecode($_POST["txtName"]));
+		$number = preg_replace("/[^0-9]/", '', noHTML(urldecode($_POST["txtPhone"])));
+		if(isset($_POST["txtMessage"])) {
+			$message = noHTML(urldecode($_POST["txtMessage"]));
+		} else {
+			$message = "DISABLED";
+		}
 		if(strlen($name) <= $SBNR_CONTACT_MAX_LENGTH_NAME
 			&& strlen($number) >= $SBNR_CONTACT_MIN_LENGTH_PHONE_NUMBER
 			&& strlen($number) <= $SBNR_CONTACT_MAX_LENGTH_PHONE_NUMBER
@@ -28,14 +32,14 @@ if(isset($_POST["CSRF_TOKEN"], $_POST["txtName"], $_POST["txtPhone"], $_POST["tx
 				$location = "[" . $msentinel . "] Location: " . $geoIP . "\n";
 			}
 
-			$message = "[" . $msentinel . "] MESSAGE START\n" .
+			$messageResult = "[" . $msentinel . "] MESSAGE START\n" .
 					"[" . $msentinel . "] Name: " . $name . "\n" .
 					"[" . $msentinel . "] Phone Number: " . $number . "\n" .
 					$location .
 					"[" . $msentinel . "] Message: \n" . $message . "\n" .
 					"[" . $msentinel . "] MESSAGE END";
 
-			exec("echo " . escapeshellarg($message) . " | sendxmpp -f " . $SBNR_CONTACT_SENDXMPP_CONFIG . " -t " . $SBNR_CONTACT_SENDXMPP_RECEIPENT);
+			exec("echo " . escapeshellarg($messageResult) . " | sendxmpp -f " . $SBNR_CONTACT_SENDXMPP_CONFIG . " -t " . $SBNR_CONTACT_SENDXMPP_RECEIPENT);
 			print("Message Sent!");
 		} else {
 			generateErrorPageBasic(406);
