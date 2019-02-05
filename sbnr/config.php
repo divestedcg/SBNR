@@ -28,6 +28,8 @@ $SBNR_SHADOW_INSTANCE = "https://shadow.example.tld/shadow.php";
 $SBNR_SHADOW_LANDSCAPE = "SNBR_TEST";
 
 //Security
+$SBNR_SEC_HTTPS_ONLY = false; //Enable if using HTTPS
+$SBNR_SEC_CLIENT_HARDENING = true; //Disable if globally added by webserver
 $SBNR_SEC_FILE_UPLOADS = "Off";
 $SBNR_SEC_MAX_POST_SIZE = "2K";
 $SBNR_SEC_SESSION_COOKIE_NAME = "PHPSESSID";
