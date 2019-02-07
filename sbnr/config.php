@@ -24,7 +24,7 @@ $SBNR_ANALYTICS_CUSTOM_PATH = "fragments/analytics.html";
 //Analytics - Shadow
 $SBNR_SHADOW_ENABLED = false;
 $SBNR_SHADOW_BASIC = true;
-$SBNR_SHADOW_INSTANCE = "https://shadow.example.tld/shadow.php";
+$SBNR_SHADOW_INSTANCE = "https://shadow.example.tld";
 $SBNR_SHADOW_LANDSCAPE = "SNBR_TEST";
 
 //Security
