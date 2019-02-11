@@ -13,6 +13,7 @@ Features
 - CSRF and XSS Protection
 - Light/Dark CSS
 - Contact Form Support via XMPP
+- No-JS <1KB image captchas (text or math)
 - Minification
 - Disabling right click and devtools
 - Broken Stripe Support
