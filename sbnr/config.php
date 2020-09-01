@@ -30,6 +30,7 @@ $SBNR_SHADOW_INSTANCE = "https://shadow.example.tld";
 $SBNR_SHADOW_LANDSCAPE = "SNBR_TEST";
 
 //Security
+$SBNR_CAPTCHA_WALL = false && extension_loaded('gd');
 $SBNR_SEC_HTTPS_ONLY = false; //Enable if using HTTPS
 $SBNR_SEC_CLIENT_HARDENING = true; //Disable if globally added by webserver
 $SBNR_SEC_FILE_UPLOADS = "Off";
