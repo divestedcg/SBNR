@@ -1,10 +1,10 @@
 				<div class="card fluid">
 					<h2>Privacy Policy ([PLACEHOLDER_LEGAL_LAST_REVISED_DATE])</h2>
 					<p>Detailed below is everything you need to know about how your data is handled.</p>
-					<div class="section">
+					<div class="section" id="fpCollect">
 						<h3>What data we ([PLACEHOLDER_ORGANIZATION]) collect</h3>
 						<ul>
-							<li>Website</li>
+							<li id="website">Website</li>
 							<ul>
 								<li>What is received: Cookies (detailed below), Page Visited, Referring Page, User Agent, and IP Address</li>
 								<li>Cookies</li>
@@ -26,12 +26,12 @@
 								<li>How to anonymize: Visit the site using the Tor Browser</li>
 							</ul>
 							<?php if($SBNR_ANALYTICS_ENABLED || $SBNR_SHADOW_ENABLED) : ?>
-							<li>Website Analytics</li>
+							<li id="analytics">Website Analytics</li>
 							<ul>
 								<li>What is received: Page Visited, Stripped Referring Page, Browser Fingerprint, User Agent, IP Address</li>
 								<li>How often: On every page visit</li>
 								<li>Why it is received: Used to determine how popular and roughly how many users we have</li>
-								<li>When it will be deleted: Only the past 200 requests are stored</li>
+								<li>When it will be deleted: At least once a month</li>
 								<li>What else will it be used for: Nothing else</li>
 								<!-- The above is applicable if using Shadow with its defaults -->
 								<li>How to anonymize: Visit the site using the Tor Browser</li>
@@ -51,7 +51,7 @@
 						</ul>
 					</div>
 					<!-- TODO: Uncomment and update this section as necessary -->
-					<!--<div class="section">
+					<!--<div class="section" id="control">
 						<h3>Control over your data</h3>
 						<ul>
 							<li>Requesting your data: We have no way to tie data to an identity</li>
@@ -61,12 +61,12 @@
 						</ul>
 						<p>E-Mail: <script>document.write(atob("[PLACEHOLDER_CONTACT_EMAIL]"));</script><noscript>JavaScript Protected</noscript></p>
 					</div>-->
-					<div class="section">
+					<div class="section" id="3rdparty">
 						<h3>What data third parties collect</h3>
 						<p>Third parties are used to support specific features and apps</p>
 						<ul>
 							<?php if($SBNR_STRIPE_ENABLED) : ?>
-							<li>Website Payments</li>
+							<li id="stripe">Website Payments</li>
 							<ul>
 								<li>Who: Stripe</li>
 								<li>What they receive: Name, Bank Card, E-Mail Address, User Agent, Browser Fingerprint, IP Address</li>
