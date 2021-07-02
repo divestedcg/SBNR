@@ -19,6 +19,6 @@ Features
 - Broken Stripe Support
 - Analytics Support
 
-Tip Jar
+Donate
 -------
 BTC: bc1qz9xfupuwdltnc200tmmpflp8303tp2r47lgpxh
