@@ -21,4 +21,4 @@ Features
 
 Donate
 -------
-BTC: bc1qz9xfupuwdltnc200tmmpflp8303tp2r47lgpxh
+- https://divested.dev/donate
