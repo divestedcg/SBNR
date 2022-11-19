@@ -33,6 +33,7 @@ $SBNR_SHADOW_LANDSCAPE = "SNBR_TEST";
 //Security
 $SBNR_CAPTCHA_WALL = false;
 $SBNR_CAPTCHA_WALL_JS_REQUIRED = false;
+$SBNR_CAPTCHA_WALL_JS_SUBSTITUTE = false;
 $SBNR_CAPTCHA_WALL_PAGES = array();
 $SBNR_SEC_HTTPS_ONLY = false; //Enable if using HTTPS
 $SBNR_SEC_CLIENT_HARDENING = true; //Disable if globally added by webserver
